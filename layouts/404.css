@@ -1,0 +1,11 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text404 {
+  font-size: 78px;
+  color: #ff0000;
+  font-family: 'Calibri', 'sans-serif';
+}
