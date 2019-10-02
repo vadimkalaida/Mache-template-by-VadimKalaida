@@ -7,6 +7,7 @@
  * @package mache
  */
 
+
 if ( ! function_exists( 'mache_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -126,6 +127,7 @@ define('MC_IMG_DIR', MC_THEME_ROOT.'/img');
 
 function mache_scripts() {
   wp_enqueue_style( 'basic', MC_CSS_DIR.'/basic.css');
+  wp_enqueue_style( 'header', MC_CSS_DIR.'/header.css');
   if(is_404()) {
     wp_enqueue_style( '404', MC_CSS_DIR.'/404.css');
   }
@@ -152,10 +154,4 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 

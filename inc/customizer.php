@@ -25,6 +25,77 @@ function mache_customize_register( $wp_customize ) {
 			'render_callback' => 'mache_customize_partial_blogdescription',
 		) );
 	}
+  // site name
+  $wp_customize->add_section( 'site_name_section' , array(
+    'title'      => __( 'Site Name and Logo Section', 'mache' ),
+    'priority'   => 30,
+  ) );
+  $wp_customize->add_setting( 'site_name' , array(
+    'default'   => 'Mache',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_name', array(
+    'label'      => __( 'Site Name', 'mache' ),
+    'section'    => 'site_name_section',
+    'settings'   => 'site_name',
+  ) ) );
+  $wp_customize->add_setting( 'site_logo' , array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_logo', array(
+    'label'      => __( 'Site Logo', 'mache' ),
+    'section'    => 'site_name_section',
+    'settings'   => 'site_logo',
+  ) ) );
+
+
+
+  // HEADER SECTION
+  $wp_customize->add_section( 'header_section' , array(
+    'title'      => __( 'Header Section', 'mache' ),
+    'priority'   => 30,
+  ) );
+  // HEADER - background image
+  $wp_customize->add_setting( 'header_background' , array(
+    'default'   => '',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_background', array(
+    'label'      => __( 'Header Background Image', 'mache' ),
+    'section'    => 'header_section',
+    'settings'   => 'header_background',
+  ) ) );
+  // HEADER - navigation links color
+  $wp_customize->add_setting( 'header_nav_links_color' , array(
+    'default'   => '#ffffff',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_nav_links_color', array(
+    'label'      => __( 'Header Navigation Links Color', 'mache' ),
+    'section'    => 'header_section',
+    'settings'   => 'header_nav_links_color',
+  ) ) );
+  // HEADER - navigation links hover color
+  $wp_customize->add_setting( 'header_nav_links_hover_color' , array(
+    'default'   => '#ff0000',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_nav_links_hover_color', array(
+    'label'      => __( 'Header Navigation Links Hover Color', 'mache' ),
+    'section'    => 'header_section',
+    'settings'   => 'header_nav_links_hover_color',
+  ) ) );
+  // HEADER - navigation link1
+  $wp_customize->add_setting( 'header_nav_link1' , array(
+    'default'   => 'Home',
+    'transport' => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_nav_link1', array(
+    'label'      => __( 'Header Navigation Link 1', 'mache' ),
+    'section'    => 'header_section',
+    'settings'   => 'header_nav_link1',
+  ) ) );
 }
 add_action( 'customize_register', 'mache_customize_register' );
 
